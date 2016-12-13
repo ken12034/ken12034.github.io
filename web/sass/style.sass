@@ -118,16 +118,18 @@ h1
   clear: both
 
 .center
-  width : 100%
+  width : 68%
   box-shadow: 2px 4px 4px 0px #aaa
   background: #fff
+  float: left
   .center-content
     padding: 10px 30px 40px
 
 
 .work-item
-  width: 25%
+  width: 43%
   float: left
+  margin: 0 30px 30px
   .work-item-content
     margin: 5px
     height: 250px
@@ -135,6 +137,8 @@ h1
   .work-item-title
     text-align: center
     font-size: 16px
+  a
+    text-decoration: none
 
 
 .image1
@@ -176,20 +180,31 @@ h1
   background-size: 1000px
   background-position: -350px -100px
 
+.link
+  text-decoration: none
+  color: #15cbff
+
+
 @media(max-width:768px)
   .left, .right
     width: 100%
   .list
     padding: 0px
 
+  .center
+    width : 100%
+    margin-bottom: 50px
+
   .center .center-content
-    padding: 10px 10px 40px
+     padding: 10px 10px 40px
 
   .work-item
     width : 50%
+    margin: 0px
     margin-bottom: 50px
     position: relative
 
 @media(max-width:542px)
   .work-item
     width : 100%
+    margin-bottom: 50px
