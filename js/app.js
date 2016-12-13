@@ -8,14 +8,14 @@ angular
         .state('home', {
           url: '/',
           views:{
-            "viewLeft" : {templateUrl: 'angular/templates/left.html'},
-            "viewRight" : {templateUrl: 'angular/templates/right.html'},
-            "viewBottom" : {templateUrl: 'angular/templates/bottom.html'}
+            "viewLeft" : {templateUrl: 'templates/left.html'},
+            "viewRight" : {templateUrl: 'templates/right.html'},
+            "viewBottom" : {templateUrl: 'templates/bottom.html'}
           }
         })
         .state('about', {
-          url: '/angular/about',
-          templateUrl: 'angular/templates/about.html'
+          url: '/about',
+          templateUrl: 'templates/about.html'
         })
      $locationProvider.html5Mode(true);
   })
