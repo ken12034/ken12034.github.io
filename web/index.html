@@ -6,20 +6,18 @@
   <meta name="viewport" content="width=device-width, user-scalable=no" />
   <link rel=stylesheet type="text/css" href="css/style.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/rwd.css">
   <script src="js/angular.min.js"></script>
   <script src="js/angular-ui-router.js"></script>
-   <script src="js/app.js"></script>
+  <script src="js/app.js"></script>
+<base href="/web">
 </head>
   <body>
     <div class="content" >
-     <!-- header ng-include="'templates/nav.html'"></header -->
+     <!--header ng-include="'angular/templates/nav.html'"></header-->
      <div ui-view="viewLeft"></div>
      <div ui-view="viewRight"></div>
      <div ui-view="viewBottom"></div>
+     <div ui-view></div>
     </div>
-
-
   </body>
-
 </html>
