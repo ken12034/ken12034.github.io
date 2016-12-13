@@ -3,10 +3,10 @@ angular
     'ui.router'
   ])
   .config(  function($urlRouterProvider, $stateProvider , $locationProvider ) {
-      $urlRouterProvider.otherwise('/angular/');
+      $urlRouterProvider.otherwise('/');
       $stateProvider
         .state('home', {
-          url: '/angular/',
+          url: '/',
           views:{
             "viewLeft" : {templateUrl: 'angular/templates/left.html'},
             "viewRight" : {templateUrl: 'angular/templates/right.html'},
