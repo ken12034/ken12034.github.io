@@ -9,6 +9,7 @@ var Nav = React.createClass({ //navBar
           <li><a>賣東西</a></li>
           <li className="search"><span>搜尋</span><input type="text" /></li>
           <li><a>登入</a></li>
+          <li>購物車</li>
         </ul>
       </div>
     );
@@ -17,13 +18,12 @@ var Nav = React.createClass({ //navBar
 
 var ObjectRow = React.createClass({
   render: function() {
-    var rows = [];
-    this.props.products.forEach((product) => {
-      rows.push( <li className="item" >{product.name}</li> );
-    });
     return (  //jsx的class 要用className
       <div>
-         {rows}
+         <li className="item" >
+           <i className={this.props.font} aria-hidden="true"></i>
+              <span>{this.props.name}</span>
+         </li>
       </div>
     );
   }
@@ -32,15 +32,16 @@ var ObjectRow = React.createClass({
 
 var Left = React.createClass({
   render: function() {
-
-
-
+    var rows = [];
+    PRODUCTS.forEach((product) => {
+     rows.push( <ObjectRow name={product.name} font={product.font}/> );
+    });
 
     return (  //jsx的class 要用className
       <div className="left_panel">
         <h4>商品分類</h4>
         <ul>
-          <ObjectRow products={PRODUCTS}/>
+          {rows}
         </ul>
       </div>
     );
@@ -48,20 +49,57 @@ var Left = React.createClass({
 });
 
 var PRODUCTS = [
-  { name: '24h購物'},
-  { name: '243C'},
-  { name: '24通訊'},
-  { name: '24周邊'},
-  { name: '24NB'},
-  { name: '24數位'},
-  { name: '24家電'},
-  { name: '24生活'},
-  { name: '24日用'},
-  { name: '24食品'},
-  { name: '24休閒'},
-  { name: '24時尚'},
-  { name: '24美妝'},
-  { name: '24書店'}
+  { name: '3C周邊', font: 'fa fa-print'},
+  { name: '電腦與平板', font: 'fa fa-laptop'},
+  { name: '手機通訊', font: 'fa fa-mobile'}
+];
+
+
+class SliderShow extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      imgUrl:[
+        {
+          url: "img/01.jpg"
+        },
+        {
+          url: "img/02.jpg"
+        }
+      ],
+      num : 0
+    };
+
+    this.right = this.right.bind(this);
+  }
+
+
+  right() {
+
+    this.setState(  { num: this.state.num + 1 }  );
+  }
+
+  render() {
+    return (  //jsx的class 要用className
+      <div className="slidershow_panel">
+          <div className="slidershow_img">
+             <img src={ this.state.imgUrl[  this.state.num ].url } />
+
+          </div>
+          <div className="rightButton" onClick={this.right}></div>
+      </div>
+    );
+  }
+};
+
+
+var UrlArray = [
+  {
+    url: "img/01.jpg"
+  },
+  {
+    url: "img/02.jpg"
+  }
 ];
 
 var Template = React.createClass({ //包含全部小組件
@@ -70,6 +108,7 @@ var Template = React.createClass({ //包含全部小組件
         <div>
            <Nav />
            <Left />
+           <SliderShow />
         </div>
     )
   }
